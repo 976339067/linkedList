@@ -5,6 +5,7 @@
  *      Author: hui
  */
 #include <stdio.h>
+#include "../h/linkedList.h"
 
 #define	__LIST_TEST__
 
