@@ -1,0 +1,17 @@
+/*
+ * linkedList.c
+ *
+ *  Created on: Apr 28, 2016
+ *      Author: hui
+ */
+#include <stdio.h>
+
+#define	TEST
+
+#ifdef TEST
+int main(int argc, char *argv[])
+{
+
+	return 0;
+}
+#endif

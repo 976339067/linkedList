@@ -1,0 +1,14 @@
+22:36:12 **** Incremental Build of configuration Debug for project linkedList ****
+make all 
+Building file: /home/hui/github/linkedList/projectDir/src/linkedList.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"projectDir/src/linkedList.d" -MT"projectDir/src/linkedList.o" -o "projectDir/src/linkedList.o" "/home/hui/github/linkedList/projectDir/src/linkedList.c"
+/home/hui/github/linkedList/projectDir/src/linkedList.c:8:24: fatal error: linkedList.h: No such file or directory
+ #include "linkedList.h"
+                        ^
+compilation terminated.
+make: *** [projectDir/src/linkedList.o] Error 1
+22:37:00 **** Clean-only build of configuration Debug for project linkedList ****
+make clean 
+rm -rf  ./projectDir/src/linkedList.o  ./projectDir/src/linkedList.d  linkedList
+ 

@@ -1,0 +1,7 @@
+22:37:00 **** Clean-only build of configuration Debug for project linkedList ****
+make clean 
+rm -rf  ./projectDir/src/linkedList.o  ./projectDir/src/linkedList.d  linkedList
+ 
+
+22:37:01 Build Finished (took 414ms)
+
