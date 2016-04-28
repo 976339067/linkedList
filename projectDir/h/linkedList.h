@@ -22,6 +22,15 @@ typedef struct listNode{
 typedef struct listHead{
 	int len;			/*list length*/
 	listNode_t node;	/*list head node pointer and list tail node pointer*/
-};
+}listHead_t;
+
+/*
+ * list function return type
+ */
+typedef enum{
+	LIST_OPER_SUCCESS = 0,		/*success*/
+	LIST_OPER_WRONG_PARAM = 1,	/*wrong parameter*/
+	LIST_OPER_FAILURE = 2,		/*failure*/
+}listOperStatus_t;
 
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
