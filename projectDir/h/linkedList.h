@@ -33,4 +33,6 @@ typedef enum{
 	LIST_OPER_FAILURE = 2,		/*failure*/
 }listOperStatus_t;
 
+listOperStatus_t initList(listHead_t *listHead);
+
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
