@@ -30,6 +30,45 @@ listOperStatus_t initList(listHead_t *listHead)
 	return LIST_OPER_SUCCESS;
 }
 
+listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc)
+{
+	listNode_t *pHeadNode = NULL;
+	listNode_t *pCurrentNode = NULL;
+	listNode_t *pNectNode = NULL;
+	/*check parameter*/
+	if(NULL == listHead)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+
+	if(NULL == pFreeFunc)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+
+	pHeadNode = &(listHead->headNode);
+	pCurrentNode = pHeadNode->next;
+	/*delete list 1st node until only the head node left.free all the list node,but not free list head*/
+	while(pCurrentNode != pHeadNode)
+	{
+		pNectNode = pCurrentNode->next;
+		pHeadNode->next = pNectNode;
+		pNectNode->previous = pHeadNode;
+
+		/*free current node*/
+		pFreeFunc(pCurrentNode);
+
+		/*current node point the next node*/
+		pCurrentNode = pNectNode;
+	}
+
+	/*set list length 0*/
+	listHead->len = 0;
+
+	/*return success*/
+	return LIST_OPER_SUCCESS;
+}
+
 #ifdef __LIST_TEST__
 int main(int argc, char *argv[])
 {

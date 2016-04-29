@@ -33,6 +33,10 @@ typedef enum{
 	LIST_OPER_FAILURE = 2,		/*failure*/
 }listOperStatus_t;
 
+typedef void pFreeFunc_t(void *);
+
 listOperStatus_t initList(listHead_t *listHead);
+
+listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc);
 
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
