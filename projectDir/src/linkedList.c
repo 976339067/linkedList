@@ -21,10 +21,10 @@ listOperStatus_t initList(listHead_t *listHead)
 	listHead->len = 0;
 
 	/*set list head node pointer NULL*/
-	listHead->node.next = NULL;
+	listHead->headNode.next = NULL;
 
 	/*set list tail node pointer NULL*/
-	listHead->node.previous = NULL;
+	listHead->headNode.previous = NULL;
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
