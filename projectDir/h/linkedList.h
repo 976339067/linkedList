@@ -49,16 +49,34 @@ typedef enum{
 
 typedef void pFreeFunc_t(void *);
 
+/*
+ * initial the list
+ */
 listOperStatus_t initList(listHead_t *pListHead);
 
+/*
+ * clear the list, not free list head, free all the node,so the list can be continue used
+ */
 listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc);
 
+/*
+ * destroy the list, free list head, free all the node, so the list cannot be continue used
+ */
 listOperStatus_t destroyList(listHead_t **pListHead, pFreeFunc_t pFreeFunc);
 
+/*
+ * append node to the list tail
+ */
 listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode);
 
+/*
+ * judge whether the list is empty
+ */
 BOOL_t listEmpty(listHead_t listHead);
 
+/*
+ * get the list length
+ */
 listLength_t listLengthGet(listHead_t listHead);
 
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
