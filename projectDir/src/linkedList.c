@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include "../h/linkedList.h"
 
-#define	__LIST_TEST__
 
 listOperStatus_t initList(listHead_t *listHead)
 {
@@ -106,11 +105,3 @@ listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode)
 	return LIST_OPER_SUCCESS;
 }
 
-#ifdef __LIST_TEST__
-int main(int argc, char *argv[])
-{
-	printf("in %s, line :%d\n", __func__, __LINE__);
-
-	return 0;
-}
-#endif
