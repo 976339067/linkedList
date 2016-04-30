@@ -71,6 +71,33 @@ listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc)
 	return LIST_OPER_SUCCESS;
 }
 
+listOperStatus_t destroyList(listHead_t **ppListHead, pFreeFunc_t pFreeFunc)
+{
+	/*check parameter*/
+	if(NULL == ppListHead)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+	if(NULL == *ppListHead)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+	if(NULL == *pFreeFunc)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+
+	/*clear list*/
+	clearList(*ppListHead, pFreeFunc);
+
+	/*free list head and make it point NULL*/
+	pFreeFunc(*ppListHead);
+	*ppListHead = NULL;
+
+	/*return success*/
+	return LIST_OPER_SUCCESS;
+}
+
 listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode)
 {
 	listNode_t *pHeadNode = NULL;

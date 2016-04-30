@@ -53,6 +53,8 @@ listOperStatus_t initList(listHead_t *pListHead);
 
 listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc);
 
+listOperStatus_t destroyList(listHead_t **pListHead, pFreeFunc_t pFreeFunc);
+
 listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode);
 
 BOOL_t listEmpty(listHead_t listHead);
