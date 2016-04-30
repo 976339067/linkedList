@@ -8,6 +8,8 @@
 #include "../h/linkedList.h"
 
 
+static listOperStatus_t listLengthSet(listHead_t *pListHead, listLength_t listLength);
+
 listOperStatus_t initList(listHead_t *pListHead)
 {
 	/*check parameter*/
@@ -126,4 +128,18 @@ listLength_t listLengthGet(listHead_t listHead)
 	listLength_t listLength = listHead.listLength;
 
 	return listLength;
+}
+
+static listOperStatus_t listLengthSet(listHead_t *pListHead, listLength_t listLength)
+{
+	/*check parameter*/
+	if(NULL == pListHead)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+
+	pListHead->listLength = listLength;
+
+	/*return success*/
+	return LIST_OPER_SUCCESS;
 }
