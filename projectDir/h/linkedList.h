@@ -39,4 +39,6 @@ listOperStatus_t initList(listHead_t *listHead);
 
 listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc);
 
+listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode);
+
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */

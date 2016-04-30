@@ -73,6 +73,39 @@ listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc)
 	return LIST_OPER_SUCCESS;
 }
 
+listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode)
+{
+	listNode_t *pHeadNode = NULL;
+	listNode_t *pLastNode = NULL;
+	/*check parameter*/
+	if(NULL == listHead)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+	if(NULL == pAppendNode)
+	{
+		return LIST_OPER_WRONG_PARAM;
+	}
+
+	pHeadNode = &(listHead->headNode);
+	pLastNode = pHeadNode->previous;
+	/*configure the node append to the list: member next point to head node, previous point to last node*/
+	pAppendNode->next = pHeadNode;
+	pAppendNode->previous = pLastNode;
+
+	/*configure the original list last node: member next point the append node,previous keep original value*/
+	pLastNode->next = pAppendNode;
+
+	/*configure the list head node: member previous point the append node*/
+	pHeadNode->previous = pAppendNode;
+
+	/*update list length*/
+	listHead->len++;
+
+	/*return success*/
+	return LIST_OPER_SUCCESS;
+}
+
 #ifdef __LIST_TEST__
 int main(int argc, char *argv[])
 {
