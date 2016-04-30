@@ -120,3 +120,10 @@ BOOL_t listEmpty(listHead_t listHead)
 
 	return result;
 }
+
+listLength_t listLengthGet(listHead_t listHead)
+{
+	listLength_t listLength = listHead.listLength;
+
+	return listLength;
+}

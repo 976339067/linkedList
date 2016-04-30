@@ -57,4 +57,6 @@ listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode);
 
 BOOL_t listEmpty(listHead_t listHead);
 
+listLength_t listLengthGet(listHead_t listHead);
+
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
