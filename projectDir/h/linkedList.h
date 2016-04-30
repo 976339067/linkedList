@@ -31,7 +31,7 @@ typedef enum
 {
 	FALSE = 0,
 	TRUE = 1,
-}bool;
+}BOOL_t;
 
 /*
  * list function return type
@@ -50,6 +50,6 @@ listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc);
 
 listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode);
 
-bool listEmpty(listHead_t listHead);
+BOOL_t listEmpty(listHead_t listHead);
 
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
