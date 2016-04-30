@@ -105,3 +105,18 @@ listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode)
 	return LIST_OPER_SUCCESS;
 }
 
+bool listEmpty(listHead_t listHead)
+{
+	bool result = TRUE;
+
+	if(0 == listHead.listLength)
+	{
+		result = FALSE;
+	}
+	else
+	{
+		result = TRUE;
+	}
+
+	return result;
+}

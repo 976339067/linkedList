@@ -50,4 +50,6 @@ listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc);
 
 listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode);
 
+bool listEmpty(listHead_t listHead);
+
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
