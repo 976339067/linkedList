@@ -19,7 +19,7 @@ listOperStatus_t initList(listHead_t *pListHead)
 	}
 
 	/*set list length 0*/
-	pListHead->listLength = 0;
+	listLengthSet(pListHead, 0);
 
 	/*set list head node next pointer point head node itself*/
 	pListHead->headNode.next = &(pListHead->headNode);
@@ -62,13 +62,10 @@ listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc)
 		/*free current node*/
 		pFreeFunc(pCurrentNode);
 		pCurrentNode = NULL;
-
-		/*update head node length*/
-		pListHead->listLength--;
 	}
 
 	/*set list length 0*/
-	pListHead->listLength = 0;
+	listLengthSet(pListHead, 0);
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
@@ -78,6 +75,7 @@ listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode)
 {
 	listNode_t *pHeadNode = NULL;
 	listNode_t *pLastNode = NULL;
+	listLength_t	len = 0;
 	/*check parameter*/
 	if(NULL == pListHead)
 	{
@@ -101,7 +99,9 @@ listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode)
 	pHeadNode->previous = pAppendNode;
 
 	/*update list length*/
-	pListHead->listLength++;
+	len = listLengthGet(*pListHead);
+	len++;
+	listLengthSet(pListHead, len);
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
@@ -111,7 +111,7 @@ BOOL_t listEmpty(listHead_t listHead)
 {
 	BOOL_t result = TRUE;
 
-	if(0 == listHead.listLength)
+	if(0 == listLengthGet(listHead))
 	{
 		result = FALSE;
 	}
