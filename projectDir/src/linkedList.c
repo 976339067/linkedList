@@ -47,19 +47,23 @@ listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc)
 	}
 
 	pHeadNode = &(listHead->headNode);
-	pCurrentNode = pHeadNode->next;
 	/*delete list 1st node until only the head node left.free all the list node,but not free list head*/
-	while(pCurrentNode != pHeadNode)
+	for(pCurrentNode = pHeadNode->next; pCurrentNode != pHeadNode; pCurrentNode = pHeadNode->next)
 	{
 		pNectNode = pCurrentNode->next;
+
+		/*head node member next point the delete node's next node*/
 		pHeadNode->next = pNectNode;
+
+		/*the delete node's next node member previous point head node*/
 		pNectNode->previous = pHeadNode;
 
 		/*free current node*/
 		pFreeFunc(pCurrentNode);
+		pCurrentNode = NULL;
 
-		/*current node point the next node*/
-		pCurrentNode = pNectNode;
+		/*update head node length*/
+		listHead->len--;
 	}
 
 	/*set list length 0*/
