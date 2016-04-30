@@ -8,34 +8,34 @@
 #include "../h/linkedList.h"
 
 
-listOperStatus_t initList(listHead_t *listHead)
+listOperStatus_t initList(listHead_t *pListHead)
 {
 	/*check parameter*/
-	if(NULL == listHead)
+	if(NULL == pListHead)
 	{
 		return LIST_OPER_WRONG_PARAM;
 	}
 
 	/*set list length 0*/
-	listHead->len = 0;
+	pListHead->len = 0;
 
 	/*set list head node next pointer point head node itself*/
-	listHead->headNode.next = &(listHead->headNode);
+	pListHead->headNode.next = &(pListHead->headNode);
 
 	/*set list head node previous pointer point head node itself*/
-	listHead->headNode.previous = &(listHead->headNode);
+	pListHead->headNode.previous = &(pListHead->headNode);
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
 }
 
-listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc)
+listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc)
 {
 	listNode_t *pHeadNode = NULL;
 	listNode_t *pCurrentNode = NULL;
 	listNode_t *pNectNode = NULL;
 	/*check parameter*/
-	if(NULL == listHead)
+	if(NULL == pListHead)
 	{
 		return LIST_OPER_WRONG_PARAM;
 	}
@@ -45,7 +45,7 @@ listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc)
 		return LIST_OPER_WRONG_PARAM;
 	}
 
-	pHeadNode = &(listHead->headNode);
+	pHeadNode = &(pListHead->headNode);
 	/*delete list 1st node until only the head node left.free all the list node,but not free list head*/
 	for(pCurrentNode = pHeadNode->next; pCurrentNode != pHeadNode; pCurrentNode = pHeadNode->next)
 	{
@@ -62,22 +62,22 @@ listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc)
 		pCurrentNode = NULL;
 
 		/*update head node length*/
-		listHead->len--;
+		pListHead->len--;
 	}
 
 	/*set list length 0*/
-	listHead->len = 0;
+	pListHead->len = 0;
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
 }
 
-listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode)
+listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode)
 {
 	listNode_t *pHeadNode = NULL;
 	listNode_t *pLastNode = NULL;
 	/*check parameter*/
-	if(NULL == listHead)
+	if(NULL == pListHead)
 	{
 		return LIST_OPER_WRONG_PARAM;
 	}
@@ -86,7 +86,7 @@ listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode)
 		return LIST_OPER_WRONG_PARAM;
 	}
 
-	pHeadNode = &(listHead->headNode);
+	pHeadNode = &(pListHead->headNode);
 	pLastNode = pHeadNode->previous;
 	/*configure the node append to the list: member next point to head node, previous point to last node*/
 	pAppendNode->next = pHeadNode;
@@ -99,7 +99,7 @@ listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode)
 	pHeadNode->previous = pAppendNode;
 
 	/*update list length*/
-	listHead->len++;
+	pListHead->len++;
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;

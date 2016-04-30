@@ -35,10 +35,10 @@ typedef enum{
 
 typedef void pFreeFunc_t(void *);
 
-listOperStatus_t initList(listHead_t *listHead);
+listOperStatus_t initList(listHead_t *pListHead);
 
-listOperStatus_t clearList(listHead_t *listHead, pFreeFunc_t pFreeFunc);
+listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc);
 
-listOperStatus_t listAppendNode(listHead_t *listHead, listNode_t *pAppendNode);
+listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode);
 
 #endif /* PROJECTDIR_H_LINKEDLIST_H_ */
