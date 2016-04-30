@@ -25,6 +25,15 @@ typedef struct listHead{
 }listHead_t;
 
 /*
+ * boolean type
+ */
+typedef enum
+{
+	FALSE = 0,
+	TRUE = 1,
+}bool;
+
+/*
  * list function return type
  */
 typedef enum{
