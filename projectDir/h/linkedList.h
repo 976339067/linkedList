@@ -20,7 +20,7 @@ typedef struct listNode{
  * list head type
  */
 typedef struct listHead{
-	int len;				/*list length*/
+	int listLength;			/*list length*/
 	listNode_t headNode;	/*headNode.next :list 1st node pointer; headNode.previous :list last node pointer*/
 }listHead_t;
 

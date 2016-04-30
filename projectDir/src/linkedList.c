@@ -17,7 +17,7 @@ listOperStatus_t initList(listHead_t *pListHead)
 	}
 
 	/*set list length 0*/
-	pListHead->len = 0;
+	pListHead->listLength = 0;
 
 	/*set list head node next pointer point head node itself*/
 	pListHead->headNode.next = &(pListHead->headNode);
@@ -62,11 +62,11 @@ listOperStatus_t clearList(listHead_t *pListHead, pFreeFunc_t pFreeFunc)
 		pCurrentNode = NULL;
 
 		/*update head node length*/
-		pListHead->len--;
+		pListHead->listLength--;
 	}
 
 	/*set list length 0*/
-	pListHead->len = 0;
+	pListHead->listLength = 0;
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
@@ -99,7 +99,7 @@ listOperStatus_t listAppendNode(listHead_t *pListHead, listNode_t *pAppendNode)
 	pHeadNode->previous = pAppendNode;
 
 	/*update list length*/
-	pListHead->len++;
+	pListHead->listLength++;
 
 	/*return success*/
 	return LIST_OPER_SUCCESS;
